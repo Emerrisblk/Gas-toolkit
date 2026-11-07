@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "Gas Toolkit UK",
+  "short_name": "Gas Toolkit",
+  "description": "Gas rate, tightness test, pipe sizing, invoices and Gas Safety Record.",
+  "lang": "en-GB",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#e8590c",
+  "theme_color": "#e8590c",
+  "categories": ["business", "utilities"],
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
