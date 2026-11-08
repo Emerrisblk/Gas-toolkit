@@ -3,14 +3,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gas Toolkit UK</title>
-<link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/png" href="icons/icon-192.png">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#e8590c">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Gas Toolkit">
-<meta name="description" content="Gas rate calculator, tightness test, pipe sizing, invoices and Gas Safety Record for gas engineers.">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <style>
 :root{--bg:#f4f5f7;--card:#fff;--tx:#14181f;--mu:#5d6675;--ac:#e8590c;--ln:#dde1e7;--ok:#1a7f4b;--bad:#c92a2a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1217;--card:#1a1f27;--tx:#eef0f3;--mu:#9aa3b2;--ln:#2c333e;--ac:#ff8a4c;--ok:#4cc38a;--bad:#ff6b6b;color-scheme:dark}}
@@ -55,7 +50,6 @@ nav button{font-size:.82rem;padding:12px 2px}.v{padding:10px;border-radius:8px;m
 </style><style id="pgs"></style></head>
 <body><main>
 <h1>🔥 Gas Toolkit UK</h1>
-<button id="inst" class="btn hide noprint" style="margin:0 0 10px">Install app on this phone</button>
 <nav class="noprint"><button id="b-rate" class="on">Gas rate</button><button id="b-inv">Invoices</button><button id="b-cp">CP12</button><button id="b-tt">Pipework</button></nav>
 
 <section id="tab-rate">
@@ -290,9 +284,5 @@ psRows();psCalc();
 ttRuns();ttCalc();
 cpForm();cpApps();cpPrev();cpList();
 render();listSaved();
-let dip=null;
-window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();dip=e;$('inst').classList.remove('hide')});
-$('inst').onclick=async()=>{if(!dip)return;dip.prompt();try{await dip.userChoice}catch(e){}dip=null;$('inst').classList.add('hide')};
-window.addEventListener('appinstalled',()=>$('inst').classList.add('hide'));
-if('serviceWorker' in navigator&&location.protocol.startsWith('http')){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})})}
+try{if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js')}catch(e){}
 </script></body></html>
